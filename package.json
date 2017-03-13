@@ -1,0 +1,31 @@
+{
+  "name": "lifegame",
+  "version": "1.0.0",
+  "description": "The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970. This is an approach to that game.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanialt/lifegame.git"
+  },
+  "keywords": [
+    "life game"
+  ],
+  "author": "Juan Ignacio Alterio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanialt/lifegame/issues"
+  },
+  "homepage": "https://github.com/juanialt/lifegame#readme",
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.4.0",
+    "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
