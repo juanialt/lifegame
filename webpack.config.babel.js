@@ -8,11 +8,28 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
 
+    devtool: 'eval',
+
+    stats: {
+        colors: true,
+        reasons: true,
+        chunks: false
+    },
+
     module: {
         rules: [{
             test: /\.js[x]?$/,
             use: ['babel-loader'],
             exclude: /(node_modules)/
+        }, {
+            test: /\.json?$/,
+            use: ['json-loader']
+        }, {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader', 'postcss-loader']
+        }, {
+            test: /\.styl$/,
+            use: ['style-loader', 'css-loader', 'postcss-loader', 'stylus-loader']
         }]
     }
 };
