@@ -18,9 +18,14 @@ module.exports = {
 
     module: {
         rules: [{
+            enforce: "pre",
+            test: /\.js[x]?$/,
+            loader: "eslint-loader",
+            exclude: /node_modules/
+        }, {
             test: /\.js[x]?$/,
             use: ['babel-loader'],
-            exclude: /(node_modules)/
+            exclude: /node_modules/
         }, {
             test: /\.json?$/,
             use: ['json-loader']
