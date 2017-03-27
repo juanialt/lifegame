@@ -1,4 +1,4 @@
-var path = require('path');
+const path = require('path');
 
 module.exports = {
     entry: path.resolve(__dirname, './app/index.js'),
@@ -9,10 +9,12 @@ module.exports = {
     },
 
     devServer: {
-        contentBase: path.join(__dirname, "dist"),
+        publicPath: path.join(__dirname, 'dist'),
+        // contentBase: path.resolve(__dirname, 'dist'), // invalid
         compress: true,
         port: 9000
-    }
+        // progress: true  // invalid
+    },
 
     devtool: 'eval',
 
@@ -24,9 +26,9 @@ module.exports = {
 
     module: {
         rules: [{
-            enforce: "pre",
+            enforce: 'pre',
             test: /\.js[x]?$/,
-            loader: "eslint-loader",
+            loader: 'eslint-loader',
             exclude: /node_modules/
         }, {
             test: /\.js[x]?$/,
