@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --hot",
     "watch": "webpack --watch"
   },
   "repository": {
@@ -23,11 +23,14 @@
   },
   "homepage": "https://github.com/juanialt/lifegame#readme",
   "devDependencies": {
+    "babel-cli": "^6.24.0",
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.2.1",
     "babel-loader": "^6.4.0",
     "babel-preset-latest": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
+    "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.27.3",
     "eslint": "^3.18.0",
     "eslint-config-airbnb-base": "^11.1.1",
@@ -39,9 +42,12 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.2"
+    "webpack-dev-server": "^2.4.2",
+    "write-file-webpack-plugin": "^4.0.0"
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
   }
 }

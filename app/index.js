@@ -1,14 +1,18 @@
-import _ from 'lodash';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MyTitle from './MyTitle.jsx';
 
-function component() {
-    const element = document.createElement('div');
+const MyFirstComponent = React.createClass({
+    render() {
+        return (
+            <div>
+                <MyTitle title="Props are great 2!" color="rebeccapurple" />
+                <MyTitle title="Use props everywhere!" color="mediumaquamarine" />
+                <MyTitle title="Props are the best!" color="peru" />
+            </div>
+        );
+    }
+});
 
-    /* lodash is required for the next line to work */
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-    return element;
-}
-
-document.body.appendChild(component());
-
-// test
+// ReactDOM.render(<MyFirstComponent/>, document.getElementById('app'));
+ReactDOM.render(React.createElement(MyFirstComponent), document.getElementById('app'));

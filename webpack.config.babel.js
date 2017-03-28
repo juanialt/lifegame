@@ -1,4 +1,6 @@
-const path = require('path');
+import path from 'path';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
+import WriteFilePlugin from 'write-file-webpack-plugin';
 
 module.exports = {
     entry: path.resolve(__dirname, './app/index.js'),
@@ -10,27 +12,39 @@ module.exports = {
 
     devServer: {
         publicPath: path.join(__dirname, 'dist'),
-        // contentBase: path.resolve(__dirname, 'dist'), // invalid
-        compress: true,
+        //contentBase: './dist', // invalid
+        //compress: true,
         port: 9000
         // progress: true  // invalid
     },
 
     devtool: 'eval',
 
-    stats: {
-        colors: true,
-        reasons: true,
-        chunks: false
+    resolve: {
+        extensions: ['.js', '.jsx'],
+        modules: ['node_modules']
     },
 
+    plugins: [
+        new CleanWebpackPlugin(['dist'], {
+            root: __dirname,
+            verbose: true,
+            dry: false
+        }),
+        new WriteFilePlugin()
+    ],
+
     module: {
-        rules: [{
-            enforce: 'pre',
-            test: /\.js[x]?$/,
-            loader: 'eslint-loader',
-            exclude: /node_modules/
-        }, {
+        rules: [
+
+        //     {
+        //     enforce: 'pre',
+        //     test: /\.js[x]?$/,
+        //     loader: 'eslint-loader',
+        //     exclude: /node_modules/
+        // },
+
+        {
             test: /\.js[x]?$/,
             use: ['babel-loader'],
             exclude: /node_modules/
