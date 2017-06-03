@@ -1,16 +1,20 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 
 import app from './reducers/app';
+import rootSaga from './sagas';
 
-export default function (...middlewares) {
-    const store = createStore(
-        combineReducers({
-            app
-        }),
-        compose(
-            applyMiddleware(...middlewares),
-        )
-    );
 
-    return store;
-}
+const configureStore = () => {
+    const sagaMiddleware = createSagaMiddleware();
+
+    return {
+        ...createStore(
+            combineReducers({ app }),
+            applyMiddleware(sagaMiddleware)
+        ),
+        runSaga: sagaMiddleware.run(rootSaga)
+    };
+};
+
+export default configureStore;
